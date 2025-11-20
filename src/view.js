@@ -3,7 +3,7 @@ export function createView(root) {
     root: root
   };
 
-  // Рендерим начальное состояние
+  
   root.innerHTML = `
     <div class="fish-face"></div>
     <div class="satiation"></div>
@@ -13,14 +13,14 @@ export function createView(root) {
     <div class="message"></div>
   `;
 
-  // Геттер для кнопки
+  
   Object.defineProperty(view, 'feedButton', {
     get: function() {
       return this.root.querySelector('.feed-button');
     }
   });
 
-  // Геттер для лица (нужен тестам контроллера)
+
   Object.defineProperty(view, 'face', {
     get: function() {
       return this.root.querySelector('.fish-face');

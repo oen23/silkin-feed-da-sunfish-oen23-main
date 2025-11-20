@@ -6,7 +6,6 @@ export function initApp(mount) {
   let satiation = 0;
   let isFeeding = false;
 
-  // Обработчик клика
   view.feedButton.addEventListener('click', async () => {
     if (isFeeding) return;
     
@@ -19,7 +18,7 @@ export function initApp(mount) {
       const result = await feedFish();
       
       if (result.ok) {
-        satiation = 100; // Тесты ожидают 100% после успешного кормления
+        satiation = 100; 
         view.setEmotion('happy');
         view.setMessage('Рыба счастлива!');
       } else if (result.status === 429) {
@@ -42,7 +41,7 @@ export function initApp(mount) {
     }
   });
 
-  // Возвращаем объект с view для тестов
+  
   return {
     view: view,
     feedButton: view.feedButton,
