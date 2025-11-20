@@ -1,0 +1,50 @@
+name: test-check
+
+on:
+  push:
+    branches:
+      - source
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: .
+
+    strategy:
+      matrix:
+        node-version: [20.x]
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - run: make install
+      - run: make lint
+      - run: make test
+
+      - name: setup git config
+        run: |
+          git config user.name "Bot"
+          git config user.email "<>"
+
+      - name: Prepare template
+        run: |
+          git checkout --orphan main source
+          echo '' > src/controller.js
+          echo '' > src/model.js
+          echo '' > src/view.js
+          git add -A   
+          git commit --no-verify -m "Rebuild template (auto)"
+          git push -f --no-verify --set-upstream origin main

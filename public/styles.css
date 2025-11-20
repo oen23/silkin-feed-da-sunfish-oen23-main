@@ -1,0 +1,52 @@
+:root{
+  --bg: #0f172a;
+  --card: #0b1220;
+  --accent: #60a5fa;
+  --muted: #94a3b8;
+  --success: #16a34a;
+  --danger: #ef4444;
+  --glass: rgba(255,255,255,0.04);
+  --radius: 12px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background:linear-gradient(180deg,#071029 0%, #071827 60%);
+  color:#e6eef8;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  display:flex;align-items:center;justify-content:center;padding:24px;
+}
+
+.fds-app{
+  width:100%;max-width:540px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius:var(--radius);padding:20px;box-shadow:0 8px 30px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.03);
+}
+
+.fish-face{
+  width:220px;height:140px;margin:8px auto;border-radius:18px;display:block;position:relative;transition:all .28s ease;box-shadow:inset 0 -8px 30px rgba(0,0,0,0.25);
+  background:linear-gradient(135deg,#cfe 0%, #9fe 100%);
+}
+.fish-face::after{content:'';position:absolute;right:18px;top:34px;width:26px;height:26px;background:white;border-radius:50%;box-shadow:0 2px 6px rgba(0,0,0,0.18)}
+.fish-face.neutral{transform:scale(1)}
+.fish-face.chewing{background:linear-gradient(135deg,#fff3c4 0%, #ffd27a 100%);transform:translateY(-4px);}
+.fish-face.happy{background:linear-gradient(135deg,#c8f7c5,#7be3a6);transform:scale(1.03) translateY(-2px)}
+.fish-face.overfed{background:linear-gradient(135deg,#ffd6d6,#ffb3b3);transform:scale(.98) rotate(-1deg)}
+.fish-face.screaming{background:linear-gradient(135deg,#ff9a9a,#ff6b6b);transform:scale(1.02) translateY(-2px) rotate(2deg)}
+
+.controls{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:12px}
+.feed-button{background:linear-gradient(90deg,var(--accent),#3b82f6);border:0;color:white;padding:10px 16px;border-radius:10px;font-weight:600;cursor:pointer;box-shadow:0 6px 18px rgba(59,130,246,0.18);transition:transform .16s ease,opacity .16s ease}
+.feed-button:hover:not(:disabled){transform:translateY(-2px)}
+.feed-button:disabled{opacity:0.5;cursor:not-allowed;transform:none}
+
+.satiation{color:var(--muted);font-weight:600;font-size:14px}
+
+.message{margin-top:14px;text-align:center;color:#e6eef8;font-weight:700}
+
+@media (max-width:420px){
+  .fish-face{width:160px;height:110px}
+  .fds-app{padding:16px}
+}

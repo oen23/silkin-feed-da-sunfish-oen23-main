@@ -1,0 +1,33 @@
+{
+  "name": "l1-basic-functions-v1",
+  "version": "1.0.0",
+  "description": "* Нельзя менять уже написанный код, тесты и другие файлы добавленные в проект * Выполняйте коммиты и пуши как можно чаще. Так вы будете видеть какие из тестов сработают, а какие нет. * Во время работы не забывайте запускать саму утилиту и npm test",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "start": "node server/index.js"
+  },
+  "simple-git-hooks": {
+    "pre-push": "npx eslint ."
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.46.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-markdown": "^3.0.1",
+    "express": "^4.18.2",
+    "jsdom": "^27.2.0",
+    "npm-check-updates": "^16.10.12",
+    "simple-git-hooks": "^2.8.1"
+  },
+  "dependencies": {
+    "axios": "^1.4.0"
+  }
+  ,
+  "overrides": {
+    "parse5": "6.0.1"
+  }
+}
